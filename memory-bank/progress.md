@@ -25,7 +25,6 @@ Preparing for Core Data Flow phase (Phase 2):
 
 MoMo transaction descriptions lack context (no clear category info)
 Categorization requires fallback strategies (GPT + manual override)
-Actual Supabase credentials need to be added to .env file
 
 📈 Future Features (post-MVP):
 

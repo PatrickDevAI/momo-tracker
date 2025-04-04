@@ -20,7 +20,6 @@ Row Level Security to protect user data
 Next Actions:
 
 Create a Supabase project and set up actual tables using our schema
-Configure Supabase connection with real credentials in .env
 Begin implementing file upload endpoint for Phase 2
 Design and set up CSV parser for MoMo transactions
 
