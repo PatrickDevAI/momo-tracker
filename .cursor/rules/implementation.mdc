@@ -61,10 +61,27 @@ Do not attempt to push or commit to GitHub.
 
 Assume Git operations are handled manually by the developer.
 
-Limitations & Warnings
+🟢 Allow Cursor to modify the frontend inside the `frontend/` submodule directory.
+- Cursor is allowed to add pages, components, and API integrations.
+- Cursor must not remove or break existing working components unless absolutely necessary.
+- Any new frontend features (upload input, dashboard) must use Supabase authentication context.
+- Cursor should **explicitly test** that API requests from frontend reach the backend correctly.
 
-Read only the frontend to understand its structure and implementation.
-Do not modify frontend code. That is handled in Lovable separately.
+🟢 Make Cursor aware that the frontend and backend are separate folders.
+- Frontend is located at: /frontend
+- Backend is located at: /backend
+- All paths and terminal commands must reflect this.
+
+🟢 Supabase is connected through both the backend and Lovable UI.
+- Cursor must ensure auth and data are consistent between frontend and backend.
+- Use Supabase client libraries (where applicable) to manage auth state on frontend.
+
+🟢 Windows OS Reminder
+- Cursor is running on a Windows dev environment. Avoid chained shell commands.
+- Execute one step at a time (e.g., `cd backend`, then `node test-auth-api.js`)
+- Use backslashes or forward slashes correctly depending on language context.
+
+Limitations & Warnings
 
 Do not execute deep chained shell commands. Use one command at a time.
 
