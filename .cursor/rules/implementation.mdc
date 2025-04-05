@@ -1,0 +1,84 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+Environment & OS Awareness
+
+You are working on a Windows machine. Use PowerShell-compatible commands.
+
+Do not use Unix-style commands like rm, touch, or chained commands like cd backend && node file.js.
+
+Navigation Rules
+
+Always start from the root of the project before doing anything.
+
+Navigate step-by-step into directories:
+
+First: cd backend
+
+Then: run your commands.
+
+Never assume your current working directory. Always confirm it.
+
+Execution Rules
+
+Only execute commands after confirming you are in the correct folder.
+
+Commands must succeed before continuing.
+
+If a command fails, stop immediately and report the failure.
+
+Check for specific outputs to confirm success:
+
+Server started: Look for “Server listening on...”
+
+Token received: Look for "token": "..."
+
+Test success: Look for “Test passed” or similar message
+
+Do not skip steps or guess that something worked unless you see confirmation.
+
+Supabase Usage
+
+You have access to Supabase via MCP tools.
+
+Use MCP to:
+
+Test Supabase connection
+
+Run Supabase auth commands
+
+Check if test users were created
+
+Avoid telling the user to do manual Supabase testing unless explicitly told.
+
+Git Handling
+
+Do not attempt to push or commit to GitHub.
+
+Assume Git operations are handled manually by the developer.
+
+Limitations & Warnings
+
+Read only the frontend to understand its structure and implementation.
+Do not modify frontend code. That is handled in Lovable separately.
+
+Do not execute deep chained shell commands. Use one command at a time.
+
+Double-check node and npm commands work on Windows as written.
+
+Example Workflow
+
+Navigate: cd backend
+
+Start server: npm run dev or node index.js
+
+Confirm: Look for "Server listening..."
+
+Run tests: node test/test-auth-api.js
+
+Confirm each step with console logs before proceeding.
+

@@ -8,6 +8,9 @@ Completed the following:
 - Designed database schema for Supabase 
 - Added auth middleware for protected routes
 - Created project configuration files
+- Implemented and tested authentication endpoints (register, login, profile, logout)
+- Integrated user profile management with auth flow
+- Verified connection to Supabase from backend
 
 Decisions Made:
 
@@ -16,10 +19,10 @@ Set up project with a modular directory structure
 Using environment variables for configuration
 Designed schema with user profiles, transactions, categories, and rules tables
 Row Level Security to protect user data
+Email verification is enabled in Supabase (requires manual verification for testing)
 
 Next Actions:
-
-Create a Supabase project and set up actual tables using our schema
+Complete Phase 1 by creating README documentation
 Begin implementing file upload endpoint for Phase 2
 Design and set up CSV parser for MoMo transactions
 
