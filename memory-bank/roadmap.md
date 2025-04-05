@@ -42,21 +42,71 @@
 
 ### Phase 2: Core Data Flow (Days 2-4)
 
-- [ ] **File Upload System**
-  - [ ] Create file upload endpoints
-  - [ ] Implement secure file handling
-  - [ ] Set up temporary storage for processing
+Phase 2: Core Data Flow (SMS-Based Parsing) (Days 2–4)
+📁 File Upload / Input System
+ Implement a secure text input form (textarea) for users to paste SMS messages.
 
-- [ ] **CSV Parser**
-  - [ ] Build MoMo transaction parser
-  - [ ] Extract transaction details (date, amount, description)
-  - [ ] Validate and sanitize data
-  - [ ] Handle formatting errors gracefully
+ Allow optional .txt file uploads for bulk import.
 
-- [ ] **Transaction Storage**
-  - [ ] Create transaction database models
-  - [ ] Implement transaction storage API
-  - [ ] Associate transactions with user accounts
+ Add clear user instructions for copying MoMo SMS from their phone.
+
+ Authenticate uploads and associate input with the logged-in user.
+
+ Store raw input securely for parsing and reference.
+
+🧠 SMS Parser Engine (Multilingual & Fault-Tolerant)
+ Build a robust, regex-based parser for MoMo SMS in both English and Kinyarwanda.
+
+ Identify and extract:
+
+Date/Time
+
+Amount
+
+Transaction Type (Send, Receive, Buy, Pay, Fee, etc.)
+
+Sender/Recipient (best effort)
+
+Balance (if included)
+
+Transaction ID (if present)
+
+ Handle multiple message formats and inconsistent structure.
+
+ Gracefully skip or log unparseable lines.
+
+ Store the original SMS line as raw_text for each transaction.
+
+ Add strong test coverage to validate parser accuracy and handle edge cases.
+
+🗃️ Transaction Storage
+ Create a Transaction model linked to the user.
+
+ Store all parsed transaction fields plus raw_text.
+
+ Add de-duplication logic using a fuzzy match on Date, Amount, Type, and Balance.
+
+ Build an API endpoint to fetch stored transactions per user.
+
+🧩 Categorization System (Hybrid)
+ Implement basic keyword-based categorization rules (e.g., "Bundles" → Airtime).
+
+ Set default category to “Uncategorized” if rules fail.
+
+ Create UI for manual categorization with editable categories.
+
+ Allow users to create custom categories.
+
+ Implement “Remember this rule?” prompt for repeated transactions (e.g., "Always tag 'Alice' as 'Rent'").
+
+ Store these rules in the backend for future auto-categorization.
+
+🧠 Notes & Caveats:
+SMS is the only reliable source, so parser flexibility is mission-critical.
+
+User involvement in categorization is not optional — the app must make this intuitive and efficient.
+
+Supabase is fully integrated — all storage, auth, and user data will continue flowing through it.
 
 ### Phase 3: Intelligence Layer (Days 4-6)
 
